@@ -1091,6 +1091,9 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 			}
 			unset( $slug, $plugin );
 
+			// Do not display message if there is no string for it.
+			$message = array_intersect_key( $message, array_filter( $this->strings ) );
+
 			// If we have notices to display, we move forward.
 			if ( ! empty( $message ) ) {
 				krsort( $message ); // Sort messages.
